@@ -1,0 +1,41 @@
+digraph INFRA {
+  node [ color = "black", fillcolor = "#E6E6E6", height =1, style = "filled,bold,rounded", fontname = "Arial" ];
+  "event-bus-depl" [ label = "event-bus-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "event-bus-srv" [ label = "event-bus-srv
+(v1/Service)" ];
+  "moderation-depl" [ label = "moderation-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "moderation-srv" [ label = "moderation-srv
+(v1/Service)" ];
+  "query-depl" [ label = "query-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "query-srv" [ label = "query-srv
+(v1/Service)" ];
+  "ingress-srv" [ label = "ingress-srv
+(networking.k8s.io/v1/Ingress)", shape =rectangle, fillcolor = "#E78F81" ];
+  "posts-srv" [ label = "posts-srv
+(v1/Service)" ];
+  "posts-depl" [ label = "posts-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "posts-clusterip-srv" [ label = "posts-clusterip-srv
+(v1/Service)" ];
+  "client-depl" [ label = "client-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "client-srv" [ label = "client-srv
+(v1/Service)" ];
+  "comments-depl" [ label = "comments-depl
+(apps/v1/Deployment)", shape =rectangle, fillcolor = "#B7E0FF" ];
+  "comments-srv" [ label = "comments-srv
+(v1/Service)" ];
+  "event-bus-srv" -> "event-bus-depl";
+  "moderation-srv" -> "moderation-depl";
+  "query-srv" -> "query-depl";
+  "ingress-srv" -> "posts-clusterip-srv";
+  "ingress-srv" -> "query-srv";
+  "ingress-srv" -> "comments-srv";
+  "ingress-srv" -> "client-srv";
+  "posts-clusterip-srv" -> "posts-depl";
+  "client-srv" -> "client-depl";
+  "comments-srv" -> "comments-depl";
+}
