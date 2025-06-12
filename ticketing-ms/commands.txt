@@ -1,0 +1,2 @@
+-- Create jwt secret key to be used by auth jwt
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<your key here>
