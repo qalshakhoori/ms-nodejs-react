@@ -13,6 +13,7 @@ export const errorHandler = (
     });
   }
 
+  console.error(err); // Log the error for debugging purposes
   res.status(400).send({
     errors: [{ message: err.message || 'Something went wrong' }],
   });
