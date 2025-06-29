@@ -1,6 +1,6 @@
 {
   "name": "@qalshakhoori-ms/ticketing-ms-common",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "./.build/index.js",
   "types": "./.build/index.d.ts",
