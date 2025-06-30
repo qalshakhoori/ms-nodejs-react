@@ -1,5 +1,5 @@
 import express from 'express';
-import { currentUserMd } from '../middlewares/current-user-md';
+import { currentUserMd } from '@qalshakhoori-ms/ticketing-ms-common';
 const router = express.Router();
 
 router.get('/api/users/currentUser', currentUserMd, (req, res) => {
