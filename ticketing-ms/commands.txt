@@ -1,2 +1,10 @@
 -- Create jwt secret key to be used by auth jwt
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<your key here>
+
+-- get pods
+kubectl get pods
+
+-- Port-Forwarding for testing
+kubectl port-forward <pod-name> <port-local-machine>:<port-on-pod>
+kubectl port-forward nats-streaming-depl-696ccc6596-nrq2j 4222:4222
+kubectl port-forward nats-streaming-depl-696ccc6596-nrq2j 8222:8222
