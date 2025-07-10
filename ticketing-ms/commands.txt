@@ -6,5 +6,5 @@ kubectl get pods
 
 -- Port-Forwarding for testing
 kubectl port-forward <pod-name> <port-local-machine>:<port-on-pod>
-kubectl port-forward nats-streaming-depl-696ccc6596-nrq2j 4222:4222
-kubectl port-forward nats-streaming-depl-696ccc6596-nrq2j 8222:8222
+kubectl port-forward nats-streaming-depl-6f7bff77fc-dz6qn 4222:4222
+kubectl port-forward nats-streaming-depl-6f7bff77fc-dz6qn 8222:8222
