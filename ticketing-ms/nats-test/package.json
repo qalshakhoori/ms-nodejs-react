@@ -12,6 +12,7 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "@qalshakhoori-ms/ticketing-ms-common": "^1.0.12",
     "@types/node": "^24.0.8",
     "node-nats-streaming": "^0.3.2",
     "ts-node-dev": "^2.0.0",

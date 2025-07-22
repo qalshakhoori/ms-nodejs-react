@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
 interface TicketAttrs {
   title: string;
@@ -25,7 +25,7 @@ const ticketSchema = new mongoose.Schema(
     price: {
       type: Number,
       required: true,
-      min: 0,
+      min: 0, // Ensure price is not negative
     },
     userId: {
       type: String,

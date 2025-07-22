@@ -1,9 +1,9 @@
 import {
   Publisher,
-  TicketCreatedEvent,
   Subjects,
+  TicketCreatedEvent,
 } from '@qalshakhoori-ms/ticketing-ms-common';
 
 export class TicketCreatedPublisher extends Publisher<TicketCreatedEvent> {
-  readonly subject = Subjects.TicktedCreated;
+  subject: Subjects.TicktedCreated = Subjects.TicktedCreated;
 }
