@@ -21,7 +21,7 @@ interface UserModel extends mongoose.Model<UserDoc> {
   build(attrs: UserAttrs): UserDoc;
 }
 
-const userSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema<UserDoc>(
   {
     email: {
       type: String,
@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: true,
+      // required: true,
     },
   },
   {
@@ -38,8 +38,6 @@ const userSchema = new mongoose.Schema(
         ret.id = ret._id;
         delete ret._id;
         delete ret.password;
-        delete ret.__v;
-        return ret;
       },
     },
   }
