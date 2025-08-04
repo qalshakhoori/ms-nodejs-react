@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema<UserDoc>(
     },
     password: {
       type: String,
-      // required: true,
+      required: false,
     },
   },
   {
@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema<UserDoc>(
       transform(doc, ret) {
         ret.id = ret._id;
         delete ret._id;
-        delete ret.password;
+        // delete ret.password;
       },
     },
   }

@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import {
+  BadRequestError,
   NotAuthorizedError,
   NotFoundError,
   requireAuth,
@@ -33,6 +34,10 @@ router.put(
       throw new NotAuthorizedError();
     }
 
+    if (ticket.orderId) {
+      throw new BadRequestError('Cannot edit a reserved ticket');
+    }
+
     const { title, price } = req.body;
 
     ticket.set({
@@ -47,6 +52,7 @@ router.put(
       title: ticket.title,
       price: ticket.price,
       userId: ticket.userId,
+      version: ticket.version, // Ensure to include the version number
     });
     res.send(ticket);
   }

@@ -16,4 +16,9 @@ export class PasswordManager {
     const buf = (await scryptAsync(suppliedPassowrd, salt, 64)) as Buffer;
     return buf.toString('hex') === hashedPassword;
   }
+
+  static randomPassword() {
+    const password = randomBytes(8).toString('hex');
+    return password;
+  }
 }
