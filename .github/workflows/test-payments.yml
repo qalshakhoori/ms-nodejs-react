@@ -1,0 +1,13 @@
+name: tests
+
+on: pull_request
+
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: ticketing-ms
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd payments && echo 'STRIPE_KEY="${{ secrets.STRIPE_KEY }}"' >> .env && npm install && npm run test:ci
