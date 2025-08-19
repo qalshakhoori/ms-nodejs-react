@@ -1,0 +1,27 @@
+name: deploy-tickets
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'ticketing-ms/tickets/**'
+jobs:
+  build:
+    defaults:
+      run:
+        working-directory: ticketing-ms
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd tickets && docker build -t qassimov/tickets .
+      - run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      - run: docker push qassimov/tickets
+      - uses: digitalocean/action-doctl@v2
+        with:
+          token: ${{ secrets.DOCTL_TOKEN }}
+      - run: doctl kubernetes cluster config save ticketing-cluster
+      - run: kubectl rollout restart deployment tickets-depl
