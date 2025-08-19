@@ -1,5 +1,6 @@
 -- Create jwt secret key to be used by auth jwt
 kubectl create secret generic jwt-secret --from-literal=JWT_KEY=<your key here>
+kubectl create secret generic stripe-secret --from-literal=STRIPE_KEY=<your key here>
 
 -- get pods
 kubectl get pods
